@@ -1,0 +1,35 @@
+# Local credentials and Docker client certificates
+.env
+.env.*
+!.env.example
+.secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local environments, caches, and generated build output
+.venv/
+.runtime/
+.tools/
+.checkpoints/
+.security-review-*/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
+Thumbs.db
+.coverage
+htmlcov/
+.browser-tests.db
+
+# Frontend dependencies and generated output
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
+frontend/tsconfig.tsbuildinfo

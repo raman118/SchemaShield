@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:17.11-bookworm
+    environment:
+      POSTGRES_USER: schemashield
+      POSTGRES_PASSWORD: ${CONTROL_DB_PASSWORD:-local_control_only}
+      POSTGRES_DB: schemashield
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: ["control_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U schemashield -d schemashield"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  api:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      SCHEMASHIELD_DATABASE_URL: postgresql+psycopg://schemashield:${CONTROL_DB_PASSWORD:-local_control_only}@db:5432/schemashield
+      SCHEMASHIELD_API_TOKEN: ${SCHEMASHIELD_API_TOKEN:-local-development-token-change-me}
+      SCHEMASHIELD_SANDBOX_ENABLED: "false"
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      db: {condition: service_healthy}
+  web:
+    build: ./frontend
+    ports: ["127.0.0.1:3000:3000"]
+    depends_on: [api]
+volumes:
+  control_data:

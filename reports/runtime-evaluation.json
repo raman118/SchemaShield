@@ -1,0 +1,2189 @@
+{
+  "created_at": "2026-10-12T22:59:32.646504+00:00",
+  "scope": "empirical_owned_postgresql_fixture",
+  "capability": {
+    "sandbox_enabled": true,
+    "sandbox_available": true,
+    "reason": "Local Docker reachable; fixture validation does not establish production safety"
+  },
+  "image": "postgres:17.11-bookworm",
+  "repetitions": 3,
+  "fixture_rows": 2000,
+  "cpu_limit": 1,
+  "memory_limit_mb": 384,
+  "postgres_data_tmpfs_mb": 192,
+  "statement_timeout_ms": 5000,
+  "lock_timeout_ms": 1000,
+  "sample_interval_ms": 25,
+  "planned_samples": 18,
+  "planned_scenarios": [
+    "nullable_add",
+    "concurrent_index",
+    "new_table",
+    "staged_check",
+    "staged_fk",
+    "partial_failure"
+  ],
+  "status": "passed",
+  "cases": [
+    {
+      "scenario": "nullable_add",
+      "repeat": 1,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 4.214,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.279
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 899.635
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "7bd9695be8b3"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "accounts",
+            "column": "nickname",
+            "type": "text"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "nullable_add",
+      "repeat": 2,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 4.788,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.335
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 901.343
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "39ec7d597677"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "accounts",
+            "column": "nickname",
+            "type": "text"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "nullable_add",
+      "repeat": 3,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 4.277,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.304
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 877.533
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "fa8c27eda081"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "accounts",
+            "column": "nickname",
+            "type": "text"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "concurrent_index",
+      "repeat": 1,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 8.068,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            3.889
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 891.035
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "6e9dd9c861a5"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "concurrent_index",
+      "repeat": 2,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 8.457,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            3.884
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 871.908
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "131f2f503add"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "concurrent_index",
+      "repeat": 3,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 8.301,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            3.781
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 881.607
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "5abb9024f585"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "new_table",
+      "repeat": 1,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 5.14,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            1.007
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 860.288
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "e4bed087452e"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "notes",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "notes",
+            "column": "note",
+            "type": "text"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "new_table",
+      "repeat": 2,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 5.243,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            1.098
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 880.957
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "c19ec0682683"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "notes",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "notes",
+            "column": "note",
+            "type": "text"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "new_table",
+      "repeat": 3,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 4.956,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            1.013
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 876.405
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "1e468bc17fd1"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "notes",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "notes",
+            "column": "note",
+            "type": "text"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "staged_check",
+      "repeat": 1,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 4.69,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.572,
+            0.322
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 872.966
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "7978c4351475"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "staged_check",
+      "repeat": 2,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 5.187,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.7,
+            0.311
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 892.576
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "e68692bdc756"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "staged_check",
+      "repeat": 3,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 5.026,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.589,
+            0.32
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 844.918
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "87ce4f1df22a"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "staged_fk",
+      "repeat": 1,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 5.603,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.74,
+            0.83
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 874.44
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "149fe587cdac"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "staged_fk",
+      "repeat": 2,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 5.487,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.69,
+            0.904
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 846.678
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "5277394bb804"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "staged_fk",
+      "repeat": 3,
+      "expected": "passed",
+      "correct": true,
+      "report": {
+        "status": "passed",
+        "checks": [
+          {
+            "name": "fixture_row_count_and_original_values",
+            "passed": true,
+            "before_count": 2000,
+            "after_count": 2000
+          },
+          {
+            "name": "all_indexes_valid",
+            "passed": true
+          },
+          {
+            "name": "all_installed_constraints_validated",
+            "passed": true
+          },
+          {
+            "name": "controlled_application_queries_succeeded",
+            "passed": true
+          }
+        ],
+        "metrics": {
+          "migration_duration_ms": 5.353,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.653,
+            0.85
+          ],
+          "instrumentation_errors": [],
+          "application_error_rate": 0.0,
+          "observed_lock_wait_samples": 0,
+          "observed_lock_wait_duration_ms": 0,
+          "total_duration_ms": 865.2
+        },
+        "environment": {
+          "postgres_version": "170011",
+          "image": "postgres:17.11-bookworm",
+          "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+          "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+          "fixture_rows": 2000,
+          "container_id": "0f145fdcb998"
+        },
+        "schema": [
+          {
+            "table": "accounts",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "accounts",
+            "column": "email",
+            "type": "text"
+          },
+          {
+            "table": "accounts",
+            "column": "balance",
+            "type": "numeric"
+          },
+          {
+            "table": "accounts",
+            "column": "touched",
+            "type": "integer"
+          },
+          {
+            "table": "orders",
+            "column": "id",
+            "type": "bigint"
+          },
+          {
+            "table": "orders",
+            "column": "account_id",
+            "type": "bigint"
+          }
+        ],
+        "limitations": [
+          "Fixed 2000-row fixture; application cutover not tested",
+          "Sampled lock waits have 25ms resolution; short locks may be missed",
+          "Each statement autocommits; failed migrations may be partially applied",
+          "Disposable database is removed after each report"
+        ]
+      }
+    },
+    {
+      "scenario": "partial_failure",
+      "repeat": 1,
+      "expected": "failed",
+      "correct": true,
+      "report": {
+        "status": "failed",
+        "checks": [],
+        "metrics": {
+          "migration_duration_ms": 4.505,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.324
+          ],
+          "instrumentation_errors": []
+        },
+        "error": "DuplicateColumn: disposable validation failed; sandbox cleanup attempted",
+        "sqlstate": "42701"
+      }
+    },
+    {
+      "scenario": "partial_failure",
+      "repeat": 2,
+      "expected": "failed",
+      "correct": true,
+      "report": {
+        "status": "failed",
+        "checks": [],
+        "metrics": {
+          "migration_duration_ms": 4.885,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.549
+          ],
+          "instrumentation_errors": []
+        },
+        "error": "DuplicateColumn: disposable validation failed; sandbox cleanup attempted",
+        "sqlstate": "42701"
+      }
+    },
+    {
+      "scenario": "partial_failure",
+      "repeat": 3,
+      "expected": "failed",
+      "correct": true,
+      "report": {
+        "status": "failed",
+        "checks": [],
+        "metrics": {
+          "migration_duration_ms": 5.39,
+          "application_queries": 1,
+          "application_errors": 0,
+          "lock_samples": [],
+          "sample_interval_ms": 25,
+          "statement_timings_ms": [
+            0.396
+          ],
+          "instrumentation_errors": []
+        },
+        "error": "DuplicateColumn: disposable validation failed; sandbox cleanup attempted",
+        "sqlstate": "42701"
+      }
+    }
+  ],
+  "completed_samples": 18,
+  "skipped_samples": 0,
+  "backfill": {
+    "status": "passed",
+    "checks": [
+      {
+        "name": "durable_interruption",
+        "passed": true
+      },
+      {
+        "name": "fresh_connection_resumed",
+        "passed": true
+      },
+      {
+        "name": "fixture_source_data_preserved",
+        "passed": true,
+        "before_count": 2000,
+        "after_count": 2000
+      },
+      {
+        "name": "every_shadow_value_verified",
+        "passed": true,
+        "mismatches": 0
+      },
+      {
+        "name": "no_duplicate_row_updates_in_fixed_fixture",
+        "passed": true
+      }
+    ],
+    "progress": {
+      "status": "completed",
+      "last_id": 2000,
+      "row_updates": 2000,
+      "batches": 20,
+      "rescans": 0,
+      "verified_rows": 2000,
+      "error_code": null,
+      "transform": "accounts-email-shadow-v1",
+      "batch_size": 100,
+      "verification": {
+        "performed": true,
+        "matching_rows": 2000,
+        "scope": "Point-in-time equality of every fixture source/target value"
+      },
+      "limitations": [
+        "Only the fixed accounts.email to email_shadow text copy is supported",
+        "Application dual writes are required after verification; later writes can invalidate equality",
+        "Progress survives reconnects while this disposable database exists, not container destruction",
+        "Rescans may update a row again; row_updates is an update count, not unique records"
+      ]
+    },
+    "environment": {
+      "postgres_version": "170011",
+      "image": "postgres:17.11-bookworm",
+      "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+      "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+      "fixture_rows": 2000,
+      "container_id": "d9f0950786e4"
+    },
+    "resume_evidence": {
+      "interrupted": {
+        "status": "paused",
+        "last_id": 200,
+        "row_updates": 200,
+        "batches": 2,
+        "rescans": 0,
+        "verified_rows": null,
+        "error_code": null,
+        "transform": "accounts-email-shadow-v1",
+        "batch_size": 100,
+        "verification": {
+          "performed": false,
+          "matching_rows": null,
+          "scope": "Point-in-time equality of every fixture source/target value"
+        },
+        "limitations": [
+          "Only the fixed accounts.email to email_shadow text copy is supported",
+          "Application dual writes are required after verification; later writes can invalidate equality",
+          "Progress survives reconnects while this disposable database exists, not container destruction",
+          "Rescans may update a row again; row_updates is an update count, not unique records"
+        ]
+      },
+      "completed": {
+        "status": "completed",
+        "last_id": 2000,
+        "row_updates": 2000,
+        "batches": 20,
+        "rescans": 0,
+        "verified_rows": 2000,
+        "error_code": null,
+        "transform": "accounts-email-shadow-v1",
+        "batch_size": 100,
+        "verification": {
+          "performed": true,
+          "matching_rows": 2000,
+          "scope": "Point-in-time equality of every fixture source/target value"
+        },
+        "limitations": [
+          "Only the fixed accounts.email to email_shadow text copy is supported",
+          "Application dual writes are required after verification; later writes can invalidate equality",
+          "Progress survives reconnects while this disposable database exists, not container destruction",
+          "Rescans may update a row again; row_updates is an update count, not unique records"
+        ]
+      },
+      "original_backend_pid": 70,
+      "resumed_backend_pid": 71,
+      "requested_interrupt_batches": 2,
+      "effective_interrupt_batches": 2
+    },
+    "metrics": {
+      "batch_size": 100,
+      "batches": 20,
+      "row_updates": 2000,
+      "verified_rows": 2000,
+      "initial_duration_ms": 10.037,
+      "resume_duration_ms": 26.864,
+      "total_duration_ms": 896.956
+    },
+    "limitations": [
+      "Only the fixed accounts.email to email_shadow text copy is supported",
+      "Application dual writes are required after verification; later writes can invalidate equality",
+      "Progress survives reconnects while this disposable database exists, not container destruction",
+      "Rescans may update a row again; row_updates is an update count, not unique records"
+    ]
+  },
+  "contention": {
+    "status": "expected_lock_timeout",
+    "sqlstate": "55P03",
+    "duration_ms": 704.8299449998012,
+    "samples": [
+      {
+        "elapsed_ms": 32.11913999984972,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 60.247778999837465,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 88.40035999946849,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 117.45331899965095,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 146.2863449996803,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 173.54747900026268,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 201.39655899947684,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 228.395969000303,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 255.08534199980204,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 282.33835300034116,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 309.5689140000104,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 336.61370299978444,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 363.96941499970126,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 391.4515870001196,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 418.6702150000201,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 446.8420450002668,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 473.8593160000164,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 499.80830999993486,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 527.0462549997319,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 553.816667999854,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 580.6936359995234,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 607.8939580002043,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 635.7645669995691,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 662.6544749997265,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      },
+      {
+        "elapsed_ms": 690.3578390001712,
+        "wait_event_type": "Lock",
+        "blocking_pids": [
+          70
+        ],
+        "locks": [
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "ExclusiveLock",
+            "granted": true
+          },
+          {
+            "mode": "AccessExclusiveLock",
+            "granted": false
+          }
+        ]
+      }
+    ],
+    "observed_wait_duration_ms": 625,
+    "blocking_observed": true,
+    "environment": {
+      "postgres_version": "170011",
+      "image": "postgres:17.11-bookworm",
+      "image_id": "sha256:589f742565e4f6d22149176b032974f55f8201a8a37b71ed587ec5c6902e689f",
+      "fixture_hash": "ef6197ac22aa53485b56cba3ca312fec8bd5ade794b3be05678be628e2a1457f",
+      "fixture_rows": 2000,
+      "container_id": "67e84bd02c12"
+    }
+  },
+  "metrics": {
+    "successful_eligible_completion_rate": 1.0,
+    "migration_latency_ms": {
+      "sample_size": 15,
+      "mean": 5.652666666666667,
+      "median": 5.187,
+      "max": 8.457,
+      "scope": "Successful eligible migrations only"
+    },
+    "controlled_application_queries": 18,
+    "controlled_application_errors": 0,
+    "application_error_rate": 0.0,
+    "backfill_recovery_success": true,
+    "contention_observed_wait_ms": 625
+  },
+  "limitations": [
+    "Small fixed fixtures and local WSL/Linux host; no production representativeness claim",
+    "Failure case intentionally autocommits its first statement; cleanup is disposal, not rollback",
+    "Lock wait duration is sampled with 25ms resolution",
+    "Backfill reconnect recovery occurs within one owned environment lease; destruction removes progress",
+    "Application workload is one fixed read/update loop, not an application compatibility proof"
+  ]
+}

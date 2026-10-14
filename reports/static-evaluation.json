@@ -1,0 +1,571 @@
+{
+  "created_at": "2026-10-13T16:28:50.330253+00:00",
+  "scope": "static_policy_only",
+  "dataset_hash": "608f0864ede331371ade9604c5809a66036a6e3f65aa806e0c2a06cc304d3d31",
+  "sample_size": 24,
+  "repetitions_per_case": 50,
+  "total_analyses": 1200,
+  "conditions": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.13",
+    "policy": "rules-1.1",
+    "parser": "pglast-v8.5/extractor-1.1"
+  },
+  "confusion_matrix": {
+    "tp": 16,
+    "tn": 8,
+    "fp": 0,
+    "fn": 0
+  },
+  "unsafe_detection_recall": 1.0,
+  "false_positive_rate": 0.0,
+  "per_rule": {
+    "PG001": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG002": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG010": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG011": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG012": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG013": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG020": {
+      "tp": 10,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG030": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG031": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG032": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG040": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG043": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG044": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG050": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG051": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG052": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG053": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG054": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG060": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG061": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    },
+    "PG062": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0
+    }
+  },
+  "analysis_latency_ms": {
+    "mean": 0.117137,
+    "median": 0.1052,
+    "p95": 0.2537,
+    "max": 0.8969
+  },
+  "cases": [
+    {
+      "id": "nullable_column",
+      "expected_unsafe": false,
+      "detected_unsafe": false,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "3786a7dbf0dce1323bef85e0170f3cd2d7ecf452fbdd2d78213fb8d7b737e5d4",
+      "score": 70,
+      "expected_rules": [
+        "PG020"
+      ],
+      "actual_rules": [
+        "PG020"
+      ]
+    },
+    {
+      "id": "new_table",
+      "expected_unsafe": false,
+      "detected_unsafe": false,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "92b38d9813bd75b0671ef4a07dd86ac600796e7b1b6b8e858a20e6993f38543c",
+      "score": 80,
+      "expected_rules": [],
+      "actual_rules": []
+    },
+    {
+      "id": "concurrent_index",
+      "expected_unsafe": false,
+      "detected_unsafe": false,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "e1e4fb298c85076e00633043255a623d99bcf6fd05e3e136c3d7dcd6db82de66",
+      "score": 70,
+      "expected_rules": [
+        "PG051"
+      ],
+      "actual_rules": [
+        "PG051"
+      ]
+    },
+    {
+      "id": "ordinary_index",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "6b983652d9bb46e1297b0ae3ec1ce16412000006962635bc9bb7599be6553b8d",
+      "score": 60,
+      "expected_rules": [
+        "PG050"
+      ],
+      "actual_rules": [
+        "PG050"
+      ]
+    },
+    {
+      "id": "drop_table",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "7af6f1ac1b0939b4d34107992060c6829cbdd0bcd3abc417d62fc729fb06de52",
+      "score": 0,
+      "expected_rules": [
+        "PG010",
+        "PG011",
+        "PG012",
+        "PG020"
+      ],
+      "actual_rules": [
+        "PG010",
+        "PG011",
+        "PG012",
+        "PG020"
+      ]
+    },
+    {
+      "id": "drop_column",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "f7616a03357055d1e7c7d700a191b4cccda4e62b8ad43dceca9cebd54d69dea4",
+      "score": 0,
+      "expected_rules": [
+        "PG010",
+        "PG011",
+        "PG012",
+        "PG020"
+      ],
+      "actual_rules": [
+        "PG010",
+        "PG011",
+        "PG012",
+        "PG020"
+      ]
+    },
+    {
+      "id": "cascade_drop",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "71a757781ce211d041f585049dc3509d97d0c9166bd4e0262ebe1bbfa4cc9ba7",
+      "score": 0,
+      "expected_rules": [
+        "PG010",
+        "PG011",
+        "PG012",
+        "PG013",
+        "PG020"
+      ],
+      "actual_rules": [
+        "PG010",
+        "PG011",
+        "PG012",
+        "PG013",
+        "PG020"
+      ]
+    },
+    {
+      "id": "type_conversion",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "67a47ea0ffb90721e57fcf5235b0e1d24cd3de11291e9b7a46f27b674b345b86",
+      "score": 0,
+      "expected_rules": [
+        "PG020",
+        "PG030",
+        "PG031",
+        "PG032"
+      ],
+      "actual_rules": [
+        "PG020",
+        "PG030",
+        "PG031",
+        "PG032"
+      ]
+    },
+    {
+      "id": "set_not_null",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "2c552da91a9af5d68f9e748e86d7464ab6bb6aaca9782bd92d0fc91a3efd5a2f",
+      "score": 45,
+      "expected_rules": [
+        "PG020",
+        "PG043"
+      ],
+      "actual_rules": [
+        "PG020",
+        "PG043"
+      ]
+    },
+    {
+      "id": "inline_not_null",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "5ff24a1f1d8c91a5f253ca943a4bc110f6ddc572cfa636f4b0fa28a8bd05d2d3",
+      "score": 55,
+      "expected_rules": [
+        "PG020",
+        "PG040"
+      ],
+      "actual_rules": [
+        "PG020",
+        "PG040"
+      ]
+    },
+    {
+      "id": "check_validation",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "741eeaa59ead390cee8224a0103ba1aaca2f657d06a11263a5ac24571050f079",
+      "score": 45,
+      "expected_rules": [
+        "PG060",
+        "PG061"
+      ],
+      "actual_rules": [
+        "PG060",
+        "PG061"
+      ]
+    },
+    {
+      "id": "check_not_valid",
+      "expected_unsafe": false,
+      "detected_unsafe": false,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "d719c3fccd345c444a4c23487c2451b8be0a5e6dd0da08909028abb4ab6eb313",
+      "score": 60,
+      "expected_rules": [
+        "PG060",
+        "PG061"
+      ],
+      "actual_rules": [
+        "PG060",
+        "PG061"
+      ]
+    },
+    {
+      "id": "foreign_key",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "e6b9a438d5da7914681fffc86cdfd5aaaaf52ab532d3086c8d030bcf87cec33b",
+      "score": 45,
+      "expected_rules": [
+        "PG060",
+        "PG061"
+      ],
+      "actual_rules": [
+        "PG060",
+        "PG061"
+      ]
+    },
+    {
+      "id": "foreign_key_not_valid",
+      "expected_unsafe": false,
+      "detected_unsafe": false,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "7c046ecd187c9517776b8626495f093562a44a00da2db255b09dd765168cd70a",
+      "score": 60,
+      "expected_rules": [
+        "PG060",
+        "PG061"
+      ],
+      "actual_rules": [
+        "PG060",
+        "PG061"
+      ]
+    },
+    {
+      "id": "validate_constraint",
+      "expected_unsafe": false,
+      "detected_unsafe": false,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "74d47876c86a67d3705975c79442e4bf18fe3f118d9502b4d65da48a0209483e",
+      "score": 70,
+      "expected_rules": [
+        "PG062"
+      ],
+      "actual_rules": [
+        "PG062"
+      ]
+    },
+    {
+      "id": "remove_not_null",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "9cc874065a1044863bb0c58a7e024dc0213c3c44b23e74378d34acdecf5d57a8",
+      "score": 50,
+      "expected_rules": [
+        "PG020",
+        "PG044"
+      ],
+      "actual_rules": [
+        "PG020",
+        "PG044"
+      ]
+    },
+    {
+      "id": "drop_index",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "48d9d773f081a0f2695c2e039f195b9ab960e6850faf11703e2b85f163cfafe0",
+      "score": 40,
+      "expected_rules": [
+        "PG053",
+        "PG054"
+      ],
+      "actual_rules": [
+        "PG053",
+        "PG054"
+      ]
+    },
+    {
+      "id": "sql_invalid",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "701c9af5773e7c8773c0ee8f6665e77da1c3f8fb943fcd73e993131eca4b44b5",
+      "score": 45,
+      "expected_rules": [
+        "PG001"
+      ],
+      "actual_rules": [
+        "PG001"
+      ]
+    },
+    {
+      "id": "malicious_program",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "6e871a6e2157ec587e1c232226e8e1bc507b3f74165b7121a03511f6523d3265",
+      "score": 45,
+      "expected_rules": [
+        "PG002"
+      ],
+      "actual_rules": [
+        "PG002"
+      ]
+    },
+    {
+      "id": "volatile_default",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "82e7589552b06f9b464e696acf69fe134432df7b56a195d2628663f648a7b957",
+      "score": 45,
+      "expected_rules": [
+        "PG002"
+      ],
+      "actual_rules": [
+        "PG002"
+      ]
+    },
+    {
+      "id": "unknown_extension",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "03e093115d70a0b83a9019e5204f67773a75b70a86fe0f88854d1c4d6aae40e2",
+      "score": 45,
+      "expected_rules": [
+        "PG002"
+      ],
+      "actual_rules": [
+        "PG002"
+      ]
+    },
+    {
+      "id": "quoted_nullable",
+      "expected_unsafe": false,
+      "detected_unsafe": false,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "be37fe697c779692fe699a74c9d1d8dc531fdb1526fd526b7af385bcce3dfcab",
+      "score": 70,
+      "expected_rules": [
+        "PG020"
+      ],
+      "actual_rules": [
+        "PG020"
+      ]
+    },
+    {
+      "id": "mixed_destructive",
+      "expected_unsafe": true,
+      "detected_unsafe": true,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "802835e725aca40b85b0c7563f83bfd255259f49ab11ac3323a4c267084b2537",
+      "score": 0,
+      "expected_rules": [
+        "PG010",
+        "PG011",
+        "PG012",
+        "PG020"
+      ],
+      "actual_rules": [
+        "PG010",
+        "PG011",
+        "PG012",
+        "PG020"
+      ]
+    },
+    {
+      "id": "unique_concurrent",
+      "expected_unsafe": false,
+      "detected_unsafe": false,
+      "correct": true,
+      "deterministic": true,
+      "artifact_hash": "c1de0977bc671b2bc55d20348d2046be92fd91899e13b1f1a0da76b55ab6f6dd",
+      "score": 60,
+      "expected_rules": [
+        "PG051",
+        "PG052"
+      ],
+      "actual_rules": [
+        "PG051",
+        "PG052"
+      ]
+    }
+  ],
+  "runtime_results": null,
+  "limitations": [
+    "24 hand-labeled cases are a small development corpus, not independent production validation",
+    "Safe label means no high/critical finding under documented assumptions, not authorization",
+    "Per-rule precision uses the explicit hand-reviewed annotations for this corpus only",
+    "Measured analysis timing excludes database/network/UI; not migration execution latency"
+  ]
+}

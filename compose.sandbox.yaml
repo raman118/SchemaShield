@@ -1,0 +1,10 @@
+# Opt in only on a trusted local Linux Docker engine. The API is privileged
+# orchestration code; disposable PostgreSQL containers never mount this socket.
+services:
+  api:
+    environment:
+      SCHEMASHIELD_SANDBOX_ENABLED: "true"
+      SCHEMASHIELD_SANDBOX_TRANSPORT: container-network
+      DOCKER_HOST: unix:///run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/run/docker.sock

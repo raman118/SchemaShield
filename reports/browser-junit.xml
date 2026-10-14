@@ -1,0 +1,20 @@
+<testsuites id="" name="" tests="7" failures="0" skipped="0" errors="0" time="10.626799">
+<testsuite name="runtime.spec.ts" timestamp="2026-10-12T23:00:24.790Z" hostname="chromium" tests="1" failures="0" skipped="0" time="9.715" errors="0">
+<testcase name="real disposable PostgreSQL browser workflow › unsafe index → concurrent plan → validate → human approval → execute → interrupted backfill recovery" classname="runtime.spec.ts" time="9.715">
+</testcase>
+</testsuite>
+<testsuite name="workflow.spec.ts" timestamp="2026-10-12T23:00:24.790Z" hostname="chromium" tests="6" failures="0" skipped="0" time="4.405" errors="0">
+<testcase name="workspace meets automated WCAG accessibility checks" classname="workflow.spec.ts" time="1.334">
+</testcase>
+<testcase name="unsafe migration is analyzed, blocked, and persisted through the real API" classname="workflow.spec.ts" time="1.158">
+</testcase>
+<testcase name="eligible index operation produces a real plan and reports runtime capability" classname="workflow.spec.ts" time="0.628">
+</testcase>
+<testcase name="authentication errors are actionable and secrets are not persisted" classname="workflow.spec.ts" time="0.279">
+</testcase>
+<testcase name="edited SQL cannot reuse the saved artifact for planning" classname="workflow.spec.ts" time="0.559">
+</testcase>
+<testcase name="mobile layout exposes usable navigation and SQL editor" classname="workflow.spec.ts" time="0.447">
+</testcase>
+</testsuite>
+</testsuites>

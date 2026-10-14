@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-13T16:28:51.725864+00:00",
+  "mode": "local",
+  "passed": true,
+  "gates": [
+    {
+      "name": "Python lint",
+      "command": [
+        "C:\\Users\\rcho3\\Desktop\\SchemaShield\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "started_at": "2026-10-13T16:28:39.254825+00:00",
+      "duration_seconds": 0.088613
+    },
+    {
+      "name": "Python format",
+      "command": [
+        "C:\\Users\\rcho3\\Desktop\\SchemaShield\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "started_at": "2026-10-13T16:28:39.343438+00:00",
+      "duration_seconds": 0.077143
+    },
+    {
+      "name": "Python unit tests",
+      "command": [
+        "C:\\Users\\rcho3\\Desktop\\SchemaShield\\.venv\\Scripts\\python.exe",
+        "scripts/run_tests.py",
+        "-m",
+        "not integration",
+        "--junitxml=C:\\Users\\rcho3\\Desktop\\SchemaShield\\reports\\unit-junit.xml"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "started_at": "2026-10-13T16:28:39.420581+00:00",
+      "duration_seconds": 3.861305,
+      "test_count": 267,
+      "skipped_count": 0,
+      "failed_count": 0
+    },
+    {
+      "name": "Frontend lint",
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "run",
+        "lint",
+        "--prefix",
+        "frontend"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "started_at": "2026-10-13T16:28:43.281886+00:00",
+      "duration_seconds": 1.516474
+    },
+    {
+      "name": "Frontend format",
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "run",
+        "format:check",
+        "--prefix",
+        "frontend"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "started_at": "2026-10-13T16:28:44.798360+00:00",
+      "duration_seconds": 0.678783
+    },
+    {
+      "name": "Frontend build",
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "run",
+        "build",
+        "--prefix",
+        "frontend"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "started_at": "2026-10-13T16:28:45.477143+00:00",
+      "duration_seconds": 4.502581
+    },
+    {
+      "name": "Static evaluation",
+      "command": [
+        "C:\\Users\\rcho3\\Desktop\\SchemaShield\\.venv\\Scripts\\python.exe",
+        "scripts/evaluate.py"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "started_at": "2026-10-13T16:28:49.979724+00:00",
+      "duration_seconds": 0.433949
+    },
+    {
+      "name": "Frontend dependency audit",
+      "command": [
+        "C:\\Program Files\\nodejs\\npm.cmd",
+        "audit",
+        "--prefix",
+        "frontend"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "started_at": "2026-10-13T16:28:50.413673+00:00",
+      "duration_seconds": 1.289994
+    }
+  ],
+  "limitations": [
+    "Local gates do not establish real PostgreSQL integration or browser acceptance"
+  ]
+}

@@ -1,0 +1,11 @@
+FROM mcr.microsoft.com/playwright:v1.64.0-noble
+WORKDIR /app
+ENV CI=1
+ENV SCHEMASHIELD_E2E_EXTERNAL=1
+ENV SCHEMASHIELD_E2E_RUNTIME=1
+ENV SCHEMASHIELD_E2E_URL=http://localhost:3000
+ENV NEXT_PUBLIC_API_URL=http://localhost:8000
+COPY package*.json ./
+RUN npm ci
+COPY . .
+CMD ["npm", "run", "test:e2e"]

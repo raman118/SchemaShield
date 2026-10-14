@@ -1,0 +1,13 @@
+FROM python:3.12.13-slim
+WORKDIR /app
+COPY pyproject.toml uv.lock ./
+COPY backend ./backend
+RUN pip install --no-cache-dir uv==0.11.26 && uv sync --frozen --extra dev
+COPY alembic.ini ./
+COPY alembic ./alembic
+COPY scripts ./scripts
+COPY tests ./tests
+COPY fixtures ./fixtures
+ENV PATH="/app/.venv/bin:$PATH"
+ENV SCHEMASHIELD_SANDBOX_TRANSPORT=container-network
+CMD ["python", "scripts/run_tests.py", "tests/integration", "-m", "integration", "--junitxml=reports/integration-junit.xml"]

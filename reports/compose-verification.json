@@ -1,0 +1,36 @@
+{
+  "created_at": "2026-10-12T23:00:37.658807+00:00",
+  "cli_image": "docker:28.5.2-cli",
+  "project": "schemashieldverifyb4e21107610f",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "compose_config",
+      "passed": true
+    },
+    {
+      "name": "compose_up_build_wait",
+      "passed": true
+    },
+    {
+      "name": "postgresql_persistence",
+      "passed": true
+    },
+    {
+      "name": "isolated_runtime_available",
+      "passed": true
+    },
+    {
+      "name": "dashboard_http",
+      "passed": true
+    },
+    {
+      "name": "unsafe_execution_blocked",
+      "passed": true
+    },
+    {
+      "name": "unique_project_cleanup",
+      "passed": true
+    }
+  ]
+}
