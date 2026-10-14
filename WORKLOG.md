@@ -55,3 +55,8 @@
 - A fresh `scripts/verify.py --full` attempt stopped at Docker capability detection (`Local Docker is unavailable; no PostgreSQL validation has been performed`). No integration/browser/runtime/Compose gates ran in this session; the prior successful 14-gate full verification remains historical evidence for the earlier frozen source revision.
 - Updated STATE.md and GOALS.md to distinguish latest local evidence from historical full acceptance. Next: restore Docker service access and rerun the full gate. No Docker resources were created in this session.
 - G13 follow-up checkpoint `.checkpoints/G13-followup-20261013T162950061610Z-9d64332e.zip` created and verified; SHA-256 `f088f1509735a92dd3afbb59853da1e4493ea40021f824c10779592bc14d183d`, 107 files. Restored to a new temporary directory, checksums validated, and the temporary restore removed. Retention is five snapshots.
+
+## 2026-10-14 — README source review
+- Read the operating contract, roadmap, state, recent work log, architecture and evaluation docs; inspected backend, frontend, Compose, test, and report evidence. Graphify was unavailable in this environment, so the review used source and recorded reports directly.
+- Rewrote README.md with the migration workflow, component map, setup, configuration, security boundaries, and current versus historical verification status. Documented that analysis support is broader than the execution allowlist and that the backfill is a fixed fixture demo.
+- No tests were run because this change only updates documentation. Verification claims are tied to the checked-in reports and STATE.md; no current PostgreSQL/browser/Compose pass is claimed.

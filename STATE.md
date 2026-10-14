@@ -16,3 +16,5 @@ Acceptance blockers: no blocker to the already verified local product scope. Liv
 
 Next action: restore local Docker service access, then rerun `.venv/Scripts/python.exe scripts/verify.py --full`; until then use the documented local development workflow. No unfinished roadmap goal needs rebuilding. No Docker resources were created by the failed capability check.
 Recovery: read AGENTS.md, GOALS.md, STATE.md and recent WORKLOG.md; inspect source and actual reports; verify the latest checkpoint manifest, restore only to a new nonexistent directory, compare checksums and review before adoption. Never run Git/GitHub or restore over user data. Retain five snapshots; older ledger entries are historical.
+
+Documentation update 2026-10-14: README.md was rewritten after source and report review. The latest local pass and Docker-blocked full attempt are distinguished from the historical full run. No tests were run for this documentation-only change; see WORKLOG.md.
